@@ -1,12 +1,14 @@
 extends ../../layout
 include ../../mixins/navbar
+include ../../mixins/flightsForm
 include ../../mixins/componentTest
 
 block content
     header
-    +navbar()
+        +navbar()
     main
-        h1.heading.foobar Hello world 
+        +flightsForm()
+        h2.heading.foobar Hello world 
         div#potato.chips
             p Hot Potatoes
             +test()

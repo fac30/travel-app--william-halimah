@@ -1,0 +1,22 @@
+mixin flightsForm()
+    script(src="https://kit.fontawesome.com/288cb3cbfc.js" crossorigin="anonymous")
+    h1 Get the best flights with the best rates
+    form.flex-row
+        .box
+            label(for="origin") From
+            input(id="origin" type="text" name="origin" placeholder="Enter airport here")
+        button
+            i.fa-solid.fa-right-left
+        .box
+            label(for="destination") To
+            input(id="destination" type="text" name="destination" placeholder="Enter airport here")
+        .box
+            label(for="depart") Depart
+            input(id="depart" type="date" name="depart" placeholder="Add date")
+        .box
+            label(for="return") Return
+            input(id="return" type="date" name="return" placeholder="Add date")
+        .box
+            label(for="travellers") Travellers
+            input(id="travellers" type="dropdown" name="travellers" placeholder="1 Adult")
+        button(type="submit") Submit
