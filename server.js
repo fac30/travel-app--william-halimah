@@ -13,6 +13,7 @@ app.set("view engine", "pug");
 
 app.use(express.static("src/styles"));
 app.use(express.static("src/assets"));
+app.use(express.static("src/modules"));
 
 app.get("/", (req, res) => {
   res.render("pages/home/index", {
