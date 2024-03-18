@@ -4,12 +4,14 @@ mixin flightsForm()
     form.flex-row
         .box
             label(for="origin") From
-            input(id="origin" type="text" name="origin" placeholder="Enter airport here")
+            select(id="origin" name="origin" placeholder="Enter airport here")
+                option Choose airport here
         button
             i.fa-solid.fa-right-left
         .box
             label(for="destination") To
-            input(id="destination" type="text" name="destination" placeholder="Enter airport here")
+            select(id="destination" name="destination" placeholder="Enter airport here")
+                option Choose airport here
         .box
             label(for="depart") Depart
             input(id="depart" type="date" name="depart" placeholder="Add date")
