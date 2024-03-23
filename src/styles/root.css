@@ -61,10 +61,11 @@
   max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
 }
 
 .width-xxs {
-  max-width: 5rem;
+  max-width: 3rem;
 }
 
 .width-xs {
