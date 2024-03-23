@@ -3,23 +3,23 @@ mixin flightsForm()
     script(type="text/javascript" defer src="flightsForm/flightsForm.js")
     h1 Get the best flights with the best rates
     form.flex-row
-        .box
+        .box.width-xs
             label(for="origin") From
             select(id="origin" name="origin" placeholder="Enter airport here")
                 option Choose airport here
         button
             i.fa-solid.fa-right-left
-        .box
+        .box.width-xs
             label(for="destination") To
             select(id="destination" name="destination" placeholder="Enter airport here")
                 option Choose airport here
-        .box
+        .box.width-xs
             label(for="depart") Depart
             input(id="depart" type="date" name="depart" placeholder="Add date")
-        .box
+        .box.width-xs
             label(for="return") Return
             input(id="return" type="date" name="return" placeholder="Add date")
-        .box
-            label(for="passengers") Passengers
-            input(id="passengers" type="dropdown" name="passengers" placeholder="1 Adult")
+        .box.width-xs
+            label(for="passengers") Add Passengers (Adults)
+            input(id="passengers" type="number" name="passengers" value="1" min="1")
         button(type="submit") Submit
