@@ -1,6 +1,7 @@
 mixin flightsForm()
     script(src="https://kit.fontawesome.com/288cb3cbfc.js" crossorigin="anonymous")
     script(type="text/javascript" defer src="flightsForm/flightsForm.js")
+    link(rel="stylesheet" href="flightsForm.css")
     h1 Get the best flights with the best rates
     form.flex-row
         .box.width-xs
@@ -20,6 +21,10 @@ mixin flightsForm()
             label(for="return") Return
             input(id="return" type="date" name="return" placeholder="Add date")
         .box.width-xs
-            label(for="passengers") Add Passengers (Adults)
+            label(for="passengers") Passengers (Adults)
+            button(id="minus").operator
+                i.fa-solid.fa-plus
             input(id="passengers" type="number" name="passengers" value="1" min="1")
+            button(id="plus").operator
+                i.fa-solid.fa-minus
         button(type="submit") Submit
