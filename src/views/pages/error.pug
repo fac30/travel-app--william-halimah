@@ -1,0 +1,14 @@
+extends ../../layout
+include ../../mixins/navbar
+include ../../mixins/footer
+
+block content
+    header
+        +navbar()
+    main
+        h1 Error 404
+        p.
+            Sorry, there was an error processing your request.
+            Please try again later.
+    footer 
+        +footer()

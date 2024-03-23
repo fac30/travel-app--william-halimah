@@ -3,17 +3,19 @@ mixin flightsForm()
     script(type="text/javascript" defer src="flightsForm/flightsForm.js")
     link(rel="stylesheet" href="flightsForm.css")
     h1 Get the best flights with the best rates
-    form.flex-row
+    form.flex-row(action="/submit" method="POST")
         .box.width-xs
             label(for="origin") From
             select(id="origin" name="origin" placeholder="Enter airport here")
                 option Choose airport here
+                option LHR
         button
             i.fa-solid.fa-right-left
         .box.width-xs
             label(for="destination") To
             select(id="destination" name="destination" placeholder="Enter airport here")
                 option Choose airport here
+                option SIN
         .box.width-xs
             label(for="depart") Depart
             input(id="depart" type="date" name="depart" placeholder="Add date")

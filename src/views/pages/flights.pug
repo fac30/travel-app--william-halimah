@@ -1,2 +1,14 @@
 extends ../layout
+include ../mixins/navbar
+include ../mixins/flightsForm
+include ../mixins/footer
+include ../mixins/destinationCard
 
+block content
+    header
+        +navbar()
+    main
+        h1 Results
+        p= console.log(data)
+    footer 
+        +footer()
