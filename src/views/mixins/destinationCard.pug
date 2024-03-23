@@ -1,0 +1,4 @@
+mixin destinations(image,name,country,attr)
+    .Card-Container(style=`background-image: url(${image})`, aria-label=attr)
+        .Card-Title
+            h3= name + ', ' + country 
