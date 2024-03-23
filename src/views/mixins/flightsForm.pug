@@ -22,9 +22,10 @@ mixin flightsForm()
             input(id="return" type="date" name="return" placeholder="Add date")
         .box.width-xs
             label(for="passengers") Passengers (Adults)
-            button(id="minus").operator
-                i.fa-solid.fa-plus
-            input(id="passengers" type="number" name="passengers" value="1" min="1")
-            button(id="plus").operator
-                i.fa-solid.fa-minus
+            .flex-row
+                button(id="minus").operator
+                    i.fa-solid.fa-minus
+                input(id="passengers" type="number" name="passengers" value="1" min="1")
+                button(id="plus").operator
+                    i.fa-solid.fa-plus
         button(type="submit") Submit

@@ -63,6 +63,10 @@
   margin-right: auto;
 }
 
+.width-xxs {
+  max-width: 7.5rem;
+}
+
 .width-xs {
   max-width: 10rem;
 }
