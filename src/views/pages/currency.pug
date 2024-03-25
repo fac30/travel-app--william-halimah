@@ -1,0 +1,10 @@
+extends ../layout
+include ../mixins/exchangeForm
+include ../mixins/conversionTable
+
+block content
+    main
+        script(type='module' src="./conversionTable/conversionTable.js" defer)
+        script(type='module' src="./exchange/EUR.js" defer)
+        +exchange()
+        +conversionTable('USD','GBP')

@@ -1,14 +1,13 @@
 mixin flightsForm()
     script(src="https://kit.fontawesome.com/288cb3cbfc.js" crossorigin="anonymous")
-    script(type="text/javascript" defer src="flightsForm/flightsForm.js")
+    script(type="module" src="flightsForm/flightsForm.js" defer)
     link(rel="stylesheet" href="flightsForm.css")
-    h1 Get the best flights with the best rates
     form.flex-row
         .box.width-xs
             label(for="origin") From
             select(id="origin" name="origin" placeholder="Enter airport here")
                 option Choose airport here
-        button
+        button.swap
             i.fa-solid.fa-right-left
         .box.width-xs
             label(for="destination") To

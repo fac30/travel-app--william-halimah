@@ -1,0 +1,15 @@
+extends ../layout
+include ../mixins/flightsForm
+include ../mixins/componentTest
+include ../mixins/destinationCard
+include ../mixins/exchangeForm
+
+
+block content
+    main
+        h1 Get the best flights with the best rates
+        +flightsForm()
+        h2 Popular Destinations
+        +destinations ('chris-karidis-nnzkZNYWHaU-unsplash.jpg','Paris','France','Photo by Chris Karidis on Unsplash')
+        h2 Find the best currency exchange rates
+        +exchange()

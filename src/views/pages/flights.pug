@@ -1,2 +1,10 @@
 extends ../layout
+include ../mixins/flightsForm
+include ../mixins/flightsResults
+include ../mixins/resultCard
 
+block content
+    main
+        +flightsForm()
+        +flightsResults()
+        +resultCard()

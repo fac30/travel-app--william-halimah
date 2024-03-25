@@ -14,19 +14,20 @@ app.set("view engine", "pug");
 app.use(express.static("src/styles"));
 app.use(express.static("src/assets"));
 app.use(express.static("src/modules"));
+app.use(express.static("src/data"));
 
 app.get("/", (req, res) => {
-  res.render("pages/home/index", {
-    title: "",
-  });
+  res.render("pages/index");
 });
 app.get("/flights", (req, res) => {
-  res.render("pages/flights", {
-    title: "",
-  });
+  res.render("pages/flights");
 });
 
-app.get("*", function (req, res) {
+app.get("/currency", (req, res) => {
+  res.render("pages/currency");
+});
+
+app.get("*", (req, res) => {
   res.status(404).send("Missing");
 });
 

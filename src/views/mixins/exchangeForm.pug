@@ -1,0 +1,26 @@
+mixin exchange()
+    link(rel="stylesheet" href="flightsForm.css")
+    form.flex-row(action="" id="")
+        .box.width-xs
+            label(for="amount") Amount
+            input(type="text" id="amount" name="amount" placeholder="Amount...")
+        .box.width-xs
+            label(for="fromCurrency") From
+            select(name="fromCurrency" id="fromCurrency")
+                option(value="GBP") GBP
+                option(value="EUR") EUR
+                option(value="USD") USD
+                option(value="NGN") NGN
+                option(value="JMD") JMD
+        button.swap
+            i.fa-solid.fa-right-left
+        .box.width-xs
+            label(for="toCurrency") To
+            select(name="toCurrency" id="toCurrency")
+                option(value="GBP") GBP
+                option(value="EUR") EUR
+                option(value="USD") USD
+                option(value="NGN") NGN
+                option(value="JMD") JMD
+        button(type="submit") Submit
+            

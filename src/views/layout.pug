@@ -1,3 +1,6 @@
+include mixins/navbar
+include mixins/footer
+
 doctype html
 html(lang="en")
     head
@@ -6,7 +9,8 @@ html(lang="en")
         title #{title}
         link(rel="stylesheet" href="main.css")
         
-    body 
+    body
+        +navbar()
         block content
-        
+        +footer()
                 

@@ -1,8 +1,7 @@
 /* Import font */
 @font-face {
   font-family: "Comfortaa";
-  src: url("src\styles\fonts\Comfortaa\Comfortaa-Regular.ttf")
-    format("truetype");
+  src: url("./fonts/Comfortaa/Comfortaa-Regular.ttf") format("truetype");
 }
 
 * {
@@ -43,6 +42,10 @@
   gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .gap-xs {
@@ -119,6 +122,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }

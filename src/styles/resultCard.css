@@ -1,0 +1,82 @@
+.result {
+  max-width: 35rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 0.25fr;
+  grid-template-rows: 1;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr;
+  padding: 0 1rem;
+  border-right: 1px solid #000;
+}
+
+.flight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.vertical-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.col {
+  padding: 0 1rem;
+}
+
+.col-arrival {
+  padding: 0;
+}
+
+.airport {
+  display: block;
+}
+
+.col-duration {
+  text-align: center;
+}
+
+.col-duration .duration,
+.stops {
+  font-size: 0.8rem;
+}
+
+.line {
+  position: relative;
+  display: block;
+  width: 90%;
+  height: 0.125rem;
+  margin: -0.5rem auto;
+  padding: 0;
+  border-radius: 0.5rem;
+  background-color: #000;
+  line-height: 0;
+  text-align: center;
+}
+
+.line i {
+  position: absolute;
+  top: 50%;
+  right: -0.25rem;
+  display: block;
+  margin-top: -0.5rem;
+}
+
+.col-arrival {
+  text-align: right;
+}
+
+.time {
+  font-size: 1.5rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  text-align: right;
+}
