@@ -1,36 +1,36 @@
-mixin resultCard(carrierDeparture, departureTime, departureAirport)
+mixin resultCard(outCarrier, outDepartureTime, outDepartureAirport, outDuration, outStops, outArrivalTime, outArrivalAirport, inCarrier, inDepartureTime, inDepartureAirport, inDuration, inStops, inArrivalTime, inArrivalAirport, ticketPrice)
     script(src="https://kit.fontawesome.com/288cb3cbfc.js" crossorigin="anonymous")
     link(rel="stylesheet" href="resultCard.css")
     .result
         .grid
-            .carrier.carrier-departure.vertical-center #{carrierDeparture || `Ryanair`}
+            .carrier.carrier-departure.vertical-center #{outCarrier || `Ryanair`}
             .flight-grid
                 .col.col-departure.vertical-center
                     p
-                      span.time 06.35
-                      span.airport STN
+                      span.time #{outDepartureTime || `06.35`}
+                      span.airport #{outDepartureAirport || `STN`}
                 .col.col-duration.vertical-center
-                    p.duration 2h
+                    p.duration #{outDuration || `2h`}
                     .line
                         i.fa-solid.fa-plane
-                    p.stops Direct
+                    p.stops #{outStops || `Direct`}
                 .col.col-arrival.vertical-center
                     p
-                      span.time 09:35
-                      span.airport MXP
-            .carrier.carrier-return.vertical-center Ryanair
+                      span.time #{outArrivalTime || `09:35`}
+                      span.airport #{outArrivalAirport || `MXP`}
+            .carrier.carrier-return.vertical-center #{inCarrier || `Ryanair`}
             .flight-grid
                 .col.col-departure.vertical-center
                     p
-                      span.time 13.20
-                      span.airport MXP
+                      span.time #{inDepartureTime || `13.20`}
+                      span.airport #{inDepartureAirport || `MXP`}
                 .col.col-duration.vertical-center
-                    p.duration 2h06
+                    p.duration #{inDuration || `2h06`}
                     .line
                       i.fa-solid.fa-plane
-                    p.stops Direct
+                    p.stops #{inStops || `Direct`}
                 .col.col-arrival.vertical-center
                     p
-                      span.time 14:25
-                      span.airport STN
-        .price £61
+                      span.time #{inArrivalTime || `14:25`}
+                      span.airport #{inArrivalAirport || `STN`}
+        .price #{ticketPrice || `£61`}
