@@ -115,13 +115,15 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-4. Enter your API key in your `.env` like below. You can view a template in `.env.template`.
+4. Enter your API keys in your `.env` like below. You can view a template in `.env.template`.
     ```js
     PORT = 3000
     SESSION_SECRET = GENERATE SECRET USING PASSWORD GENERATOR
     SKYSCANNER_KEY = API_KEY_HERE
     EXCHANGE_KEY = EXCHANGE_API_KEY_HERE
     ```
+5. To run the server, type `npm run dev` in your terminal.
+6. The server will be visible on `localhost:3000`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

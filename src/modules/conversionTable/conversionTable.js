@@ -1,4 +1,14 @@
 import eurRates from "/exchange/EUR.js";
+import GBPRates from "/exchange/GBP.js";
+import usdRates from "/exchange/USD.js";
+import ngnRates from "/exchange/NGN.js";
+import jmdRates from "/exchange/JMD.js";
+
+const fetchRates = async () =>{
+  try{
+    const rates  = await fetch("/currency-rates")
+  }
+}
 
 const fromRow1 = document.querySelector("#from-row-1");
 const fromRow2 = document.querySelector("#from-row-2");
@@ -13,4 +23,3 @@ const fromArray = new Array(
   fromRow4.innerHTML,
   fromRow5.innerHTML
 );
-console.log(eurRates);

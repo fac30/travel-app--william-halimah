@@ -1,0 +1,3 @@
+const conversionSchema = (fromCurrency) => {
+    
+};

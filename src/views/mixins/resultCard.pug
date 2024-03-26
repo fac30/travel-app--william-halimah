@@ -3,7 +3,7 @@ mixin resultCard(carrierDeparture, departureTime, departureAirport)
     link(rel="stylesheet" href="resultCard.css")
     .result
         .grid
-            .carrier.carrier-departure.vertical-center Ryanair
+            .carrier.carrier-departure.vertical-center #{carrierDeparture || `Ryanair`}
             .flight-grid
                 .col.col-departure.vertical-center
                     p

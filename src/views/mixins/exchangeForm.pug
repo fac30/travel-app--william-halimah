@@ -1,12 +1,12 @@
 mixin exchange()
     link(rel="stylesheet" href="flightsForm.css")
-    form.flex-row(action="" id="")
+    form.flex-row(action="/submit-exchange-form" id="currency-exchange-container" method="post")
         .box.width-xs
             label(for="amount") Amount
             input(type="text" id="amount" name="amount" placeholder="Amount...")
         .box.width-xs
             label(for="fromCurrency") From
-            select(name="fromCurrency" id="fromCurrency")
+            select(name="fromCurrency" id="fromCurrency" )
                 option(value="GBP") GBP
                 option(value="EUR") EUR
                 option(value="USD") USD
@@ -16,7 +16,7 @@ mixin exchange()
             i.fa-solid.fa-right-left
         .box.width-xs
             label(for="toCurrency") To
-            select(name="toCurrency" id="toCurrency")
+            select(name="toCurrency" id="toCurrency" )
                 option(value="GBP") GBP
                 option(value="EUR") EUR
                 option(value="USD") USD
