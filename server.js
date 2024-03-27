@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: "C,*/2Jlo>m=0pF)?b7yrGBPnGOnB6Z",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -33,17 +33,74 @@ app.use(express.static("src/data"));
 app.get("/", (req, res) => {
   res.render("pages/index");
 });
+
 app.get("/flights", (req, res) => {
-  res.render("pages/flights");
+  res.render("pages/flights", {
+    // outCarrier,
+    // outDepartureTime,
+    // outDepartureAirport,
+    // outDuration,
+    // outStops,
+    // outArrivalTime,
+    // outArrivalAirport,
+    // inCarrier,
+    // inDepartureTime,
+    // inDepartureAirport,
+    // inDuration,
+    // inStops,
+    // inArrivalTime,
+    // inArrivalAirport,
+    // ticketPrice,
+  });
+});
+
+app.post("/submit-flights-search", async (req, res) => {
+  const { origin, destination, departDate, returnDate, passengers } = req.body;
+  const url =
+    process.env.SKYSCANNER_URL +
+    `fromEntityId=${origin}` +
+    `&toEntityId=${destination}` +
+    `&departDate=${departDate}` +
+    `&returnDate=${returnDate}` +
+    `&adults=${passengers}`;
+
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.SKYSCANNER_RAPID_KEY,
+        "X-RapidAPI-Host": "sky-scanner3.p.rapidapi.com",
+      },
+    });
+
+    const {
+      data: { intineraries },
+    } = await response.json();
+    session.flightsData = {
+      from: origin,
+      to: destination,
+      leave: departDate,
+      return: returnDate,
+      adults: passengers,
+      responseData: data.intineraries,
+    };
+    res.redirect("/flights");
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/flight-results", (req, res) => {
+  res.send(session.flightsData);
 });
 
 app.get("/currency", (req, res) => {
-  
   res.render("pages/currency");
 });
 
 app.post("/submit-exchange-form", async (req, res) => {
-  const { fromCurrency } = req.body;
+  const { fromCurrency, toCurrency, amount } = req.body;
 
   try {
     const response = await fetch(
@@ -53,8 +110,13 @@ app.post("/submit-exchange-form", async (req, res) => {
         fromCurrency
     );
     if (response.ok && response.status === 200) {
-      const data = await response.json();
-      session[fromCurrency] = data;
+      const { conversion_rates } = await response.json();
+      session.currencyData = {
+        from: fromCurrency,
+        to: toCurrency,
+        amount: amount || 0,
+        responseData: conversion_rates,
+      };
       res.redirect("/currency");
     } else {
       throw new Error(response.status);
@@ -62,6 +124,10 @@ app.post("/submit-exchange-form", async (req, res) => {
   } catch (error) {
     res.send(error.message);
   }
+});
+
+app.get("/currency-rates", (req, res) => {
+  res.send(session.currencyData);
 });
 
 app.get("*", (req, res) => {

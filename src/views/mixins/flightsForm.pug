@@ -1,18 +1,37 @@
 mixin flightsForm()
     script(src="https://kit.fontawesome.com/288cb3cbfc.js" crossorigin="anonymous")
     script(type="module" src="flightsForm/flightsForm.js" defer)
+    script
+        - const lagos = "eyJlIjoiOTU2NzMzMzUiLCJzIjoiTE9TIiwiaCI6IjI3NTQ0MTE5IiwidCI6IkFJUlBPUlQifQ=="
+        - const london = "eyJlIjoiMjc1NDQwMDgiLCJzIjoiTE9ORCIsImgiOiIyNzU0NDAwOCIsInQiOiJDSVRZIn0="
+        - const montego = "eyJlIjoiOTk1Mzk2NjciLCJzIjoiTUJKIiwiaCI6IjI3NTQ0ODY0IiwidCI6IkFJUlBPUlQifQ=="
+        - const newYork = "eyJlIjoiMjc1Mzc1NDIiLCJzIjoiTllDQSIsImgiOiIyNzUzNzU0MiIsInQiOiJDSVRZIn0="
+        - const paris = "eyJlIjoiMjc1Mzk3MzMiLCJzIjoiUEFSSSIsImgiOiIyNzUzOTczMyIsInQiOiJDSVRZIn0="
+        - const rome = "eyJlIjoiMjc1Mzk3OTMiLCJzIjoiUk9NRSIsImgiOiIyNzUzOTc5MyIsInQiOiJDSVRZIn0="
     link(rel="stylesheet" href="flightsForm.css")
     form.flex-row
         .box.width-xs
             label(for="origin") From
             select(id="origin" name="origin" placeholder="Enter airport here")
                 option Choose airport here
+                option(value=`${lagos}`) Lagos
+                option(value=`${london}`) London (Any)
+                option(value=`${montego}`) Montego Bay
+                option(value=`${newYork}`) New York (Any)
+                option(value=`${paris}`) Paris (Any)
+                option(value=`${rome}`) Rome (Any)
         button.swap
             i.fa-solid.fa-right-left
         .box.width-xs
             label(for="destination") To
             select(id="destination" name="destination" placeholder="Enter airport here")
                 option Choose airport here
+                option(value=`${lagos}`) Lagos
+                option(value=`${london}`) London (Any)
+                option(value=`${montego}`) Montego Bay
+                option(value=`${newYork}`) New York (Any)
+                option(value=`${paris}`) Paris (Any)
+                option(value=`${rome}`) Rome (Any)
         .box.width-xs
             label(for="depart") Depart
             input(id="depart" type="date" name="depart" placeholder="Add date")
