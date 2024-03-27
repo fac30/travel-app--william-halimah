@@ -1,15 +1,15 @@
-mixin flightsResults()
+mixin flightsResults(originAirport, destinationAirport, departDate, returnDate, passengers)
     .search-terms
         .flex-row.space-between
             p
-                span#origin-airport name |
-                span#destination-airport  name
+                span#origin-airport #{originAirport} |
+                span#destination-airport  #{destinationAirport}
             p
-                span#departure-date date |
-                span#arrival-date  date
+                span#departure-date #{departDate} |
+                span#arrival-date  #{returnDate}
         .flex-row.space-between
             p
-                span#passenger-number 1
-                span  adult |
+                span#passenger-number #{passengers}
+                span  adult(s) |
                 span  Economy
-            button Return
+            //- button Return

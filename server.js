@@ -35,23 +35,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/flights", (req, res) => {
-  res.render("pages/flights", {
-    // outCarrier,
-    // outDepartureTime,
-    // outDepartureAirport,
-    // outDuration,
-    // outStops,
-    // outArrivalTime,
-    // outArrivalAirport,
-    // inCarrier,
-    // inDepartureTime,
-    // inDepartureAirport,
-    // inDuration,
-    // inStops,
-    // inArrivalTime,
-    // inArrivalAirport,
-    // ticketPrice,
-  });
+  res.render("pages/flights", { query: session.flightsData, itineraries: session.flightsData.responseData });
 });
 
 app.post("/submit-flights-search", async (req, res) => {
@@ -83,15 +67,11 @@ app.post("/submit-flights-search", async (req, res) => {
       adults: passengers,
       responseData: itineraries,
     };
-    console.log(session.flightsData.responseData);
+
     res.redirect("/flights");
   } catch (error) {
     console.error(error);
   }
-});
-
-app.get("/flight-results", (req, res) => {
-  res.send(session.flightsData);
 });
 
 app.get("/currency", (req, res) => {

@@ -6,5 +6,30 @@ include ../mixins/resultCard
 block content
     main
         +flightsForm()
-        +flightsResults()
-        +resultCard()
+        //- Pulling search query data from session.flightsData object and passing into flightsResults mixin
+        - originAirport = query.from
+        - destinationAirport = query.to
+        - departDate = query.leave 
+        - returnDate = query.return 
+        - passengers = query.adults
+        +flightsResults(originAirport, destinationAirport, departDate, returnDate, passengers)
+
+        - console.log(itineraries)
+        //- Pulling each individual roundtrip from itineraries object, looping over to produce multiple results
+        each itinerary in itineraries
+            - outCarrier = itinerary.legs[0].segments[0].operatingCarrier.name
+            - outDepartureTime = new Date(itinerary.legs[0].departure).toLocaleTimeString()
+            - outDepartureAirport = itinerary.legs[0].origin.displayCode
+            - outDuration = Math.floor(itinerary.legs[0].durationInMinutes / 60) + `h ` + (itinerary.legs[0].durationInMinutes % 60)
+            - outStops = itinerary.legs[0].stopCount === 0 ? `Direct` : itinerary.legs[0].stopCount
+            - outArrivalTime = new Date(itinerary.legs[0].arrival).toLocaleTimeString()
+            - outArrivalAirport = itinerary.legs[0].destination.displayCode
+            - inCarrier = itinerary.legs[1].segments[0].operatingCarrier.name
+            - inDepartureTime = new Date(itinerary.legs[1].departure).toLocaleTimeString()
+            - inDepartureAirport = itinerary.legs[1].origin.displayCode
+            - inDuration = Math.floor(itinerary.legs[1].durationInMinutes / 60) + `h ` + (itinerary.legs[1].durationInMinutes % 60)
+            - inStops = itinerary.legs[1].stopCount === 0 ? `Direct` : itinerary.legs[1].stopCount
+            - inArrivalTime = new Date(itinerary.legs[1].arrival).toLocaleTimeString()
+            - inArrivalAirport = itinerary.legs[1].destination.displayCode
+            - ticketPrice = itinerary.price.formatted
+            +resultCard(outCarrier, outDepartureTime, outDepartureAirport, outDuration, outStops, outArrivalTime, outArrivalAirport, inCarrier, inDepartureTime, inDepartureAirport, inDuration, inStops, inArrivalTime, inArrivalAirport, ticketPrice)
