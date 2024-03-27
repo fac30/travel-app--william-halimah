@@ -9,7 +9,7 @@ mixin flightsForm()
         - const paris = "eyJlIjoiMjc1Mzk3MzMiLCJzIjoiUEFSSSIsImgiOiIyNzUzOTczMyIsInQiOiJDSVRZIn0="
         - const rome = "eyJlIjoiMjc1Mzk3OTMiLCJzIjoiUk9NRSIsImgiOiIyNzUzOTc5MyIsInQiOiJDSVRZIn0="
     link(rel="stylesheet" href="flightsForm.css")
-    form.flex-row
+    form.flex-row(action="/submit-flights-search", method="POST")
         .box.width-xs
             label(for="origin") From
             select(id="origin" name="origin" placeholder="Enter airport here")
@@ -34,10 +34,10 @@ mixin flightsForm()
                 option(value=`${rome}`) Rome (Any)
         .box.width-xs
             label(for="depart") Depart
-            input(id="depart" type="date" name="depart" placeholder="Add date")
+            input(id="departDate" type="date" name="departDate" placeholder="Add date")
         .box.width-xs
             label(for="return") Return
-            input(id="return" type="date" name="return" placeholder="Add date")
+            input(id="returnDate" type="date" name="returnDate" placeholder="Add date")
         .box.width-xs
             label(for="passengers") Passengers (Adults)
             .flex-row.center

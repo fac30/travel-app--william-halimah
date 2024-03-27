@@ -56,6 +56,7 @@ app.get("/flights", (req, res) => {
 
 app.post("/submit-flights-search", async (req, res) => {
   const { origin, destination, departDate, returnDate, passengers } = req.body;
+
   const url =
     process.env.SKYSCANNER_URL +
     `fromEntityId=${origin}` +
@@ -73,19 +74,17 @@ app.post("/submit-flights-search", async (req, res) => {
       },
     });
 
-    const {
-      data: { intineraries },
-    } = await response.json();
+    const {data: {itineraries}} = await response.json();
     session.flightsData = {
       from: origin,
       to: destination,
       leave: departDate,
       return: returnDate,
       adults: passengers,
-      responseData: data.intineraries,
+      responseData: itineraries,
     };
+    console.log(session.flightsData.responseData);
     res.redirect("/flights");
-    console.log(result);
   } catch (error) {
     console.error(error);
   }

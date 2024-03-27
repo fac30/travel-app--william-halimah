@@ -1,12 +1,3 @@
-// Import data for each flight
-//import "dotenv/config";
-import autocomplete from "/autocomplete.js";
-import lagos from "/roundtripLondonAnyLagos.js";
-import montegoBay from "/roundtripLondonAnyMontegBay.js";
-import newYork from "/roundtripLondonAnyNewYorkAny.js";
-import paris from "/roundtripLondonAnyParisAny.js";
-import rome from "/roundtripLondonAnyRomeAny.js";
-
 // Form Inputs
 const passengersMinusBtn = document.querySelector("#minus");
 const passengersPlusBtn = document.querySelector("#plus");
@@ -32,13 +23,3 @@ passengersPlusBtn.addEventListener("click", (e) => {
     passengersInput.value = currentValue + 1;
   }
 });
-
-//
-
-const fetchFlights = async () => {
-  try {
-    const response = await fetch("/flight-results");
-  } catch (error) {
-    console.error("Error fetching: ", error.message);
-  }
-};
