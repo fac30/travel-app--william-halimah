@@ -1,7 +1,10 @@
 mixin navbar()
     nav.flex-row
-        img.logo(src="JetSavr-logo.png" alt="JetSavr logo")
+        a(href="/") 
+            img.logo(src="JetSavr-logo.png" alt="JetSavr logo")
         ul.flex-row
+            li  
+                a(href="/") Home 
             li
                 a(href="/flights") Flights 
             li 

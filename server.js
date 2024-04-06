@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import session from "express-session";
 import "dotenv/config";
+import results from './src/data/roundtrip.js'
+import airportNames from './src/data/airportNames.js'
 
 const app = express();
 const PORT = process.env.PORT;
@@ -30,6 +32,16 @@ app.use((req, res, next) => {
       from: "",
       to: "",
       amount: 0,
+      responseData: null,
+    };
+  }
+  if (!session.flightsData) {
+    session.flightsData = {
+      from: "",
+      to: "",
+      leave: "2024-01-01",
+      return: "2024-01-02",
+      adults: 1,
       responseData: null,
     };
   }
@@ -64,20 +76,27 @@ app.post("/submit-flights-search", async (req, res) => {
     `&adults=${passengers}`;
 
   try {
-    const response = await fetch(url, {
+    let response = await fetch(url, {
       method: "GET",
       headers: {
         "X-RapidAPI-Key": process.env.SKYSCANNER_RAPID_KEY,
         "X-RapidAPI-Host": "sky-scanner3.p.rapidapi.com",
       },
     });
-
+    let resultData
+    if (!response.ok || response.status !== 200) {
+      resultData = results
+    } else {
+      resultData = await response.json()
+    }
+    
     const {
       data: { itineraries },
-    } = await response.json();
+    } = resultData;
+
     session.flightsData = {
-      from: origin,
-      to: destination,
+      from: airportNames[origin],
+      to: airportNames[destination],
       leave: departDate,
       return: returnDate,
       adults: passengers,
@@ -127,7 +146,7 @@ app.get("/currency-rates", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.status(404).send("Missing");
+  res.status(404).render("pages/error");
 });
 
 app.listen(PORT, () => {
