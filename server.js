@@ -24,6 +24,17 @@ app.use(
     },
   })
 );
+app.use((req, res, next) => {
+  if (!session.currencyData) {
+    session.currencyData = {
+      from: "",
+      to: "",
+      amount: 0,
+      responseData: null,
+    };
+  }
+  next();
+});
 
 app.use(express.static("src/styles"));
 app.use(express.static("src/assets"));
@@ -35,7 +46,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/flights", (req, res) => {
-  res.render("pages/flights", { query: session.flightsData, itineraries: session.flightsData.responseData });
+  res.render("pages/flights", {
+    query: session.flightsData,
+    itineraries: session.flightsData.responseData,
+  });
 });
 
 app.post("/submit-flights-search", async (req, res) => {
@@ -58,7 +72,9 @@ app.post("/submit-flights-search", async (req, res) => {
       },
     });
 
-    const {data: {itineraries}} = await response.json();
+    const {
+      data: { itineraries },
+    } = await response.json();
     session.flightsData = {
       from: origin,
       to: destination,
@@ -75,7 +91,7 @@ app.post("/submit-flights-search", async (req, res) => {
 });
 
 app.get("/currency", (req, res) => {
-  res.render("pages/currency");
+  res.render("pages/currency", { exchangeRates: session.currencyData });
 });
 
 app.post("/submit-exchange-form", async (req, res) => {

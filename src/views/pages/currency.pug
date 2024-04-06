@@ -4,8 +4,14 @@ include ../mixins/conversionTable
 
 block content
     main
-        script(type='module' src="./conversionTable/conversionTable.js" defer)
-        script(type='module' src="./exchange/EUR.js" defer)
+        - from = exchangeRates.from
+        - to = exchangeRates.to 
+        - amount = exchangeRates.amount 
+        - rates = exchangeRates.responseData || null 
         +exchange()
-        #converted-amount 
-        +conversionTable('USD','GBP')
+        if from && to && rates 
+            if amount <= 0
+                #converted-amount= `${0} ${to}`
+            else 
+                #converted-amount= `${(amount * rates[to]).toFixed(2)} ${to}`
+            +conversionTable(from,to,rates[to])
