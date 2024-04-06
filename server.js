@@ -49,6 +49,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static("src/styles"));
+app.use(express.static("src/styles/components"));
 app.use(express.static("src/assets"));
 app.use(express.static("src/modules"));
 app.use(express.static("src/data"));
