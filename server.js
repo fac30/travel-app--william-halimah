@@ -87,6 +87,7 @@ app.post("/submit-flights-search", async (req, res) => {
     res.redirect("/flights");
   } catch (error) {
     console.error(error);
+    res.redirect("/");
   }
 });
 
