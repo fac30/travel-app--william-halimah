@@ -1,7 +1,7 @@
 mixin exchange(from,to)
     link(rel="stylesheet" href="form.css")
     script(type="module", src="./swap/swapCurrency.js") 
-    form.flex-row(action="/submit-exchange-form" id="currency-exchange-container" method="post")
+    form.flex.flex-row.gap-sm(action="/submit-exchange-form" id="currency-exchange-container" method="post")
         .box.width-xs
             label(for="amount") Amount
             input(type="number" id="amount" min="0" max="1000000000"  name="amount" placeholder="Amount...")

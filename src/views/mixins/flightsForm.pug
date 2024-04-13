@@ -1,5 +1,6 @@
 mixin flightsForm()
     script(type="module" src="flightsForm/flightsForm.js" defer)
+    script(type="module" src="swap/swapDestination.js" defer)
     script
         - const lagos = "eyJlIjoiOTU2NzMzMzUiLCJzIjoiTE9TIiwiaCI6IjI3NTQ0MTE5IiwidCI6IkFJUlBPUlQifQ=="
         - const london = "eyJlIjoiMjc1NDQwMDgiLCJzIjoiTE9ORCIsImgiOiIyNzU0NDAwOCIsInQiOiJDSVRZIn0="
@@ -8,8 +9,8 @@ mixin flightsForm()
         - const paris = "eyJlIjoiMjc1Mzk3MzMiLCJzIjoiUEFSSSIsImgiOiIyNzUzOTczMyIsInQiOiJDSVRZIn0="
         - const rome = "eyJlIjoiMjc1Mzk3OTMiLCJzIjoiUk9NRSIsImgiOiIyNzUzOTc5MyIsInQiOiJDSVRZIn0="
     link(rel="stylesheet" href="form.css")
-    form.flex-row(action="/submit-flights-search", method="POST")
-        .box.width-xs
+    form.flex.flex-row(action="/submit-flights-search", method="POST")
+        .box.width-xs.flex.flex-col.gap-sm
             label(for="origin") From
             select(id="origin" name="origin" placeholder="Enter airport here")
                 option Choose airport here
@@ -21,7 +22,7 @@ mixin flightsForm()
                 option(value=`${rome}`) Rome (Any)
         button.swap#flightSwap
             i.fa-solid.fa-right-left
-        .box.width-xs
+        .box.width-xs.flex.flex-col.gap-sm
             label(for="destination") To
             select(id="destination" name="destination" placeholder="Enter airport here")
                 option Choose airport here
@@ -31,13 +32,13 @@ mixin flightsForm()
                 option(value=`${newYork}`) New York (Any)
                 option(value=`${paris}`) Paris (Any)
                 option(value=`${rome}`) Rome (Any)
-        .box.width-xs
+        .box.width-xs.flex.flex-col.gap-sm
             label(for="depart") Depart
             input(id="departDate" type="date" name="departDate" placeholder="Add date")
-        .box.width-xs
+        .box.width-xs.flex.flex-col.gap-sm
             label(for="return") Return
             input(id="returnDate" type="date" name="returnDate" placeholder="Add date")
-        .box.width-xs
+        .box.width-xs.flex.flex-col.gap-sm
             label(for="passengers") Passengers (Adults)
             .flex-row.center
                 button(id="minus").operator

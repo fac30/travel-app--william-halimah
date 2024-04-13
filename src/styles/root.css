@@ -22,7 +22,8 @@
   --clr-neutral-900: #090f20;
 
   /* Fonts */
-  --ff-regular: "Comfortaa", "Inter", sans-serif;
+  --ff-heading: "Comfortaa", sans-serif;
+  --ff-regular: "Inter", sans-serif;
 
   /* Font sizes */
   --fs-small: 0.8rem;
@@ -39,20 +40,29 @@
 
 /* Utility Classes */
 
-.flex-row {
+.flex {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
   flex-wrap: wrap;
-  align-items: center;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .space-between {
   justify-content: space-between;
 }
 
-.gap-xs {
+.gap-sm {
   gap: 0.5rem;
+}
+
+.gap-md {
+  gap: 1rem;
 }
 
 .gap-lg {
@@ -64,10 +74,10 @@
 }
 
 .center {
-  max-width: 40rem;
+  max-width: 45rem;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;
+  align-items: center;
 }
 
 .width-xxs {
@@ -83,6 +93,10 @@
 }
 
 .width-lg {
+  max-width: 50rem;
+}
+
+.width-xl {
   max-width: 60rem;
 }
 
@@ -102,6 +116,8 @@
   margin-top: 4rem;
 }
 
+/* Main classes */
+
 .logo {
   width: 125px;
 }
@@ -114,10 +130,37 @@ ul {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+  color: var(--clr-neutral-250);
+}
+
+/* Navigation */
+
 nav,
 footer {
   background-color: var(--clr-neutral-800);
   color: var(--clr-neutral-100);
+}
+
+nav > div {
+  padding: 0.75rem 1.5rem;
+}
+
+/* Main section */
+
+main {
+  padding: 1rem 1.5rem;
+}
+
+/* Footer */
+
+footer > div {
+  padding: 0.75rem 1.5rem;
+}
+
+footer > .brand > img {
+  aspect-ratio: 1;
 }
 
 /* Code to remove arrows from input[type=number] */

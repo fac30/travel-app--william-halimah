@@ -6,13 +6,16 @@ include ../mixins/exchangeForm
 
 
 block content
-    main
-        h1 Get the best flights with the best rates
-        +flightsForm()
-        h2 Popular Destinations
-            .desination-gallery 
-                +destinations ('paris.png','Paris','France','Photo by Chris Karidis on Unsplash')
-                +destinations ('athens.png','Athens','Greece','Photo by Chris Karidis on Unsplash')
-                +destinations ('venice.png','Venice','Italy','Photo by Chris Karidis on Unsplash')
-        h2 Find the best currency exchange rates
-        +exchange()
+    main.center.width-lg.stack-lg
+        section.stack-md
+            h1 Get the best flights with the best rates
+            +flightsForm()
+        section.stack-md
+            h2 Popular Destinations
+                .desination-gallery 
+                    +destinations ('paris.png','Paris','France','Photo by Chris Karidis on Unsplash')
+                    +destinations ('athens.png','Athens','Greece','Photo by Chris Karidis on Unsplash')
+                    +destinations ('venice.png','Venice','Italy','Photo by Chris Karidis on Unsplash')
+        section.stack-md
+            h2 Find the best currency exchange rates
+            +exchange()

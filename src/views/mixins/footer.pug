@@ -1,16 +1,17 @@
 mixin  footer()
     footer
-        .brand
-            img(src="favicon.ico", alt="JetSavr Logo")
-            a(href="", rel="noopener noreferrer") About Us 
-            a(href="", rel="noopener noreferrer") Contact Us 
+        div.flex.flex-row.space-between.center
+            .brand.flex.flex-col.gap-xs
+                img(src="favicon.ico", alt="JetSavr Logo").width-xxs
+                a(href="", rel="noopener noreferrer") About Us 
+                a(href="", rel="noopener noreferrer") Contact Us 
 
-        .nav-Links 
-            a(href="/") Home 
-            a(href="" , rel="noopener noreferrer") Services 
-            a(href="", rel="noopener noreferrer") Blog/News
-        
-        .github  
-            h4 Contributors
-            a(href="https://github.com/william-man", target="_blank", rel="noopener noreferrer")  William
-            a(href="https://github.com/halimahexe", target='_blank' rel="noopener noreferrer") Halimah
+            .nav-Links.flex.flex-col.gap-xs
+                a(href="/") Home 
+                a(href="" , rel="noopener noreferrer") Services 
+                a(href="", rel="noopener noreferrer") Blog/News
+            
+            .github.flex.flex-col.gap-xs
+                h4 Contributors
+                a(href="https://github.com/william-man", target="_blank", rel="noopener noreferrer")  William
+                a(href="https://github.com/halimahexe", target='_blank' rel="noopener noreferrer") Halimah

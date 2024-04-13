@@ -1,6 +1,7 @@
 /* Input CSS */
 
 .box {
+  width: fit-content;
   padding: 5px;
   background-color: var(--clr-neutral-250);
 }
