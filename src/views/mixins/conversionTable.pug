@@ -1,22 +1,36 @@
 mixin conversionTable(fromCurrency,toCurrency,rate)
      
-    .Currency-Container 
-        .Currency-Header 
-            h3= `Convert ${fromCurrency} to ${toCurrency}`
-        .Currency-Column-Header
-            .Currency-Column-From
-                h4= `${fromCurrency}`
-                #from-row-1= `1 ${fromCurrency}`
-                #from-row-2= `10 ${fromCurrency}`
-                #from-row-3= `100 ${fromCurrency}`
-                #from-row-4= `1000 ${fromCurrency}`
-                #from-row-5= `10000 ${fromCurrency}`
-            .Currency-Column-To
-                h4= `${toCurrency}`
-                #to-row-1= `${(1*rate).toFixed(2)} ${toCurrency}`
-                #to-row-2= `${(10*rate).toFixed(2)} ${toCurrency}`
-                #to-row-3= `${(100*rate).toFixed(2)} ${toCurrency}`
-                #to-row-4= `${(1000*rate).toFixed(2)} ${toCurrency}`
-                #to-row-5= `${(10000*rate).toFixed(2)} ${toCurrency}`
+    table.Currency-Container 
+        tr.Currency-Header 
+            th(colspan="2")= `Convert ${fromCurrency} to ${toCurrency}`
+        tr.Currency-Column-Header
+            th.Currency-Column-From= `${fromCurrency}`
+            th.Currency-Column-To= `${toCurrency}`
+        tr 
+            td#from-row-1= `1 ${fromCurrency}`
+            td#to-row-1= `${(1*rate).toFixed(2)} ${toCurrency}` 
+        tr 
+            td#from-row-2= `10 ${fromCurrency}`
+            td#to-row-2= `${(10*rate).toFixed(2)} ${toCurrency}`
+        tr 
+            td#from-row-3= `100 ${fromCurrency}`
+            td#to-row-3= `${(100*rate).toFixed(2)} ${toCurrency}`
+        tr 
+            td#from-row-4= `1000 ${fromCurrency}` 
+            td#to-row-4= `${(1000*rate).toFixed(2)} ${toCurrency}`
+        tr 
+            td#from-row-5= `10000 ${fromCurrency}` 
+            td#to-row-5= `${(10000*rate).toFixed(2)} ${toCurrency}`
+                
+                
+                
+                
+            
+                
+                
+                
+                
+               
+                
          
                 
