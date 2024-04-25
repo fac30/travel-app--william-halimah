@@ -3,15 +3,17 @@ include ../mixins/exchangeForm
 include ../mixins/conversionTable
 
 block content
-    main
+    main.center.width-lg.stack-lg
         - from = exchangeRates.from
         - to = exchangeRates.to 
         - amount = exchangeRates.amount 
         - rates = exchangeRates.responseData || null 
-        +exchange()
-        if from && to && rates 
-            if amount <= 0
-                #converted-amount= `${0} ${to}`
-            else 
-                #converted-amount= `${(amount * rates[to]).toFixed(2)} ${to}`
-            +conversionTable(from,to,rates[to])
+        section.stack-md
+            +exchange()
+        section.stack-md
+            if from && to && rates 
+                if amount <= 0
+                    #converted-amount= `Amount converted: ${0} ${to}`
+                else 
+                    #converted-amount= `${amount} ${from} = ${(amount * rates[to]).toFixed(2)} ${to}`
+                +conversionTable(from,to,rates[to])
